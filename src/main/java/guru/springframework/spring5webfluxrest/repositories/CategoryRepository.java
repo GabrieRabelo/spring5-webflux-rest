@@ -1,4 +1,4 @@
-package guru.springframework.spring5webfluxrest.repository;
+package guru.springframework.spring5webfluxrest.repositories;
 
 import guru.springframework.spring5webfluxrest.domain.Category;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;

@@ -2,8 +2,8 @@ package guru.springframework.spring5webfluxrest.boostratp;
 
 import guru.springframework.spring5webfluxrest.domain.Category;
 import guru.springframework.spring5webfluxrest.domain.Vendor;
-import guru.springframework.spring5webfluxrest.repository.CategoryRepository;
-import guru.springframework.spring5webfluxrest.repository.VendorRepository;
+import guru.springframework.spring5webfluxrest.repositories.CategoryRepository;
+import guru.springframework.spring5webfluxrest.repositories.VendorRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
