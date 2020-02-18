@@ -25,46 +25,46 @@ public class Bootstrap implements CommandLineRunner {
             System.out.println("##### LOAD DATA ON BOOTSTRAP #####");
 
             categoryRepository.save(Category.builder()
-                    .description("Fruits").build());
+                    .description("Fruits").build()).block();
 
             categoryRepository.save(Category.builder()
-                    .description("Nuts").build());
+                    .description("Nuts").build()).block();
 
             categoryRepository.save(Category.builder()
-                    .description("Breads").build());
+                    .description("Breads").build()).block();
 
             categoryRepository.save(Category.builder()
-                    .description("Meats").build());
+                    .description("Meats").build()).block();
 
             categoryRepository.save(Category.builder()
-                    .description("Eggs").build());
+                    .description("Eggs").build()).block();
 
             System.out.println("Loaded Categories: " + categoryRepository.count().block());
 
             vendorRepository.save(Vendor.builder()
                     .firstName("Joe")
                     .lastName("Buck")
-                    .build());
+                    .build()).block();
 
             vendorRepository.save(Vendor.builder()
                     .firstName("Michael")
                     .lastName("Weston")
-                    .build());
+                    .build()).block();
 
             vendorRepository.save(Vendor.builder()
                     .firstName("Jessie")
                     .lastName("Waters")
-                    .build());
+                    .build()).block();
 
             vendorRepository.save(Vendor.builder()
                     .firstName("Bill")
                     .lastName("Nershi")
-                    .build());
+                    .build()).block();
 
             vendorRepository.save(Vendor.builder()
                     .firstName("Jimmy")
                     .lastName("Buffet")
-                    .build());
+                    .build()).block();
 
             System.out.println("Loaded Vendors: " + vendorRepository.count().block());
         }
