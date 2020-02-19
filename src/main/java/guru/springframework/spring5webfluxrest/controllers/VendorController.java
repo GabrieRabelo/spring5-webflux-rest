@@ -10,7 +10,8 @@ import reactor.core.publisher.Mono;
 
 @RestController
 public class VendorController {
-    VendorRepository vendorRepository;
+
+    private final VendorRepository vendorRepository;
 
     public VendorController(VendorRepository vendorRepository) {
         this.vendorRepository = vendorRepository;
