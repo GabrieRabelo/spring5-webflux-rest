@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
 
 import static org.mockito.ArgumentMatchers.any;
 
-class VendorControllerTest {
+public class VendorControllerTest {
 
     VendorRepository vendorRepository;
     VendorController vendorController;
@@ -60,12 +60,27 @@ class VendorControllerTest {
         BDDMockito.given(vendorRepository.saveAll(any(Publisher.class)))
                 .willReturn(Flux.just(Vendor.builder().build()));
 
-        Mono<Vendor> vendorToCreateMono = Mono.just(Vendor.builder().firstName("Gabriel").build());
+        Mono<Vendor> vendorToCreateMono = Mono.just(Vendor.builder().firstName("Gabriel").lastName("Rabelo").build());
 
         webTestClient.post()
                 .uri("/api/v1/vendors")
                 .body(vendorToCreateMono, Vendor.class)
                 .exchange()
                 .expectStatus().isCreated();
+    }
+
+    @Test
+    public void testVendorUpdate() {
+        BDDMockito.given(vendorRepository.save(any(Vendor.class)))
+                .willReturn(Mono.just(Vendor.builder().build()));
+
+        Mono<Vendor> vendorToUpdateMono = Mono.just(Vendor.builder().firstName("Gabriel").lastName("Rabelo").build());
+
+        webTestClient.put()
+                .uri("/api/v1/vendors/someid")
+                .body(vendorToUpdateMono, Vendor.class)
+                .exchange()
+                .expectStatus().isOk();
+
     }
 }
